@@ -1,0 +1,152 @@
+{
+  "v": "4.0",
+  "policies": {
+    "create": "perUser"
+  },
+  "workspace": {
+    "environments": [
+      {
+        "name": "java",
+        "machineConfigs": [
+          {
+            "limits": {
+              "ram": 1000
+            },
+            "name": "ws-machine",
+            "type": "docker",
+            "source": {
+              "location": "http://beta.codenvy.com/api/recipe/recipe7awzx4jnggo2j2fz/script",
+              "type": "recipe"
+            },
+            "dev": true,
+            "links": []
+          }
+        ]
+      }
+    ],
+    "defaultEnv": "java",
+    "projects": [
+      {
+        "links": [],
+        "name": "web-java-spring-petclinic",
+        "attributes": {
+          "maven.artifactId": [
+            "spring-petclinic"
+          ],
+          "maven.parent.version": [
+            ""
+          ],
+          "maven.test.source.folder": [
+            "src/test/java"
+          ],
+          "maven.version": [
+            "1.0.0-SNAPSHOT"
+          ],
+          "maven.parent.groupId": [
+            ""
+          ],
+          "languageVersion": [
+            "1.8.0_45"
+          ],
+          "contribute": [],
+          "contribute_mode": [
+            "contribute"
+          ],
+          "language": [
+            "java"
+          ],
+          "pull_request_id": [],
+          "maven.source.folder": [
+            "src/main/java"
+          ],
+          "git.repository.remotes": [
+            "https://github.com/che-samples/web-java-spring-petclinic.git"
+          ],
+          "maven.groupId": [
+            "org.springframework.samples"
+          ],
+          "maven.packaging": [
+            "war"
+          ],
+          "containsJavaFiles": [
+            "true"
+          ],
+          "vcs.provider.name": [
+            "git"
+          ],
+          "maven.resource.folder": [],
+          "contribute_branch": [
+            "master"
+          ],
+          "git.current.branch.name": [
+            "master"
+          ],
+          "maven.parent.artifactId": [
+            ""
+          ]
+        },
+        "type": "maven",
+        "source": {
+          "location": "https://github.com/che-samples/web-java-spring-petclinic.git",
+          "type": "git",
+          "parameters": {}
+        },
+        "modules": [],
+        "path": "/web-java-spring-petclinic",
+        "description": "",
+        "problems": [],
+        "mixins": [
+          "git",
+          "contribution"
+        ]
+      }
+    ],
+    "name": "java",
+    "attributes": {
+      "stackId": "java-default"
+    },
+    "commands": [
+      {
+        "commandLine": "$TOMCAT_HOME/bin/catalina.sh run",
+        "name": "run tomcat",
+        "attributes": {
+          "previewUrl": "http://${server.port.8080}"
+        },
+        "type": "custom"
+      },
+      {
+        "commandLine": "$TOMCAT_HOME/bin/catalina.sh stop",
+        "name": "stop tomcat",
+        "attributes": {
+          "previewUrl": ""
+        },
+        "type": "custom"
+      },
+      {
+        "commandLine": "mvn -f ${current.project.path} clean install && cp ${current.project.path}/target/*.war $TOMCAT_HOME/webapps/ROOT.war",
+        "name": "build",
+        "attributes": {
+          "previewUrl": ""
+        },
+        "type": "mvn"
+      },
+      {
+        "commandLine": "mvn -f ${current.project.path} clean install && cp ${current.project.path}/target/*.war $TOMCAT_HOME/webapps/ROOT.war && $TOMCAT_HOME/bin/catalina.sh run",
+        "name": "build and run",
+        "attributes": {
+          "previewUrl": "http://${server.port.8080}"
+        },
+        "type": "mvn"
+      },
+      {
+        "commandLine": "mvn -f ${current.project.path} clean install && cp ${current.project.path}/target/*.war $TOMCAT_HOME/webapps/ROOT.war && $TOMCAT_HOME/bin/catalina.sh jpda run",
+        "name": "debug",
+        "attributes": {
+          "previewUrl": "http://${server.port.8080}"
+        },
+        "type": "mvn"
+      }
+    ],
+    "links": []
+  }
+}
