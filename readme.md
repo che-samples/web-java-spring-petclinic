@@ -2,6 +2,9 @@
 
 Spring PetClinic Sample Application
 
+# Developer Workspace
+[![Contribute](http://beta.codenvy.com/factory/resources/codenvy-contribute.svg)](http://beta.codenvy.com/f?id=r6p0l1sfnwm99k94)
+
 # Stack to use
 
 FROM [codenvy/ubuntu_jdk8](https://hub.docker.com/r/codenvy/ubuntu_jdk8/)
@@ -20,6 +23,3 @@ FROM [codenvy/debian_jdk8](https://hub.docker.com/r/codenvy/debian_jdk8/)
 | 3 | Stop Tomcat      |    `$TOMCAT_HOME/bin/catalina.sh stop` |
 | 4 | Tomcat Debug Mode      |    `$TOMCAT_HOME/bin/catalina.sh jpda run` |
 
-# Factory
-
-[![Contribute](https://codenvy.com/factory/resources/codenvy-contribute.svg)](http://beta.codenvy.com/f?id=r6p0l1sfnwm99k94)
