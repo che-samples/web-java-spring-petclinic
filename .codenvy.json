@@ -1,8 +1,5 @@
 {
   "v": "4.0",
-  "policies": {
-    "create": "perUser"
-  },
   "workspace": {
     "environments": [
       {
@@ -10,7 +7,7 @@
         "machineConfigs": [
           {
             "limits": {
-              "ram": 1000
+              "ram": 2000
             },
             "name": "ws-machine",
             "type": "docker",
@@ -96,8 +93,7 @@
         "description": "",
         "problems": [],
         "mixins": [
-          "git",
-          "contribution"
+          "git"
         ]
       }
     ],
@@ -147,6 +143,24 @@
         "type": "mvn"
       }
     ],
+    "ide": {
+    "onProjectsLoaded": {
+      "actions": [
+        {
+          "properties": {
+            "file": "/web-java-spring-petclinic/src/main/java/org/springframework/samples/petclinic/model/Pet.java"
+          },
+          "id": "openFile"
+        },
+        {
+          "properties": {
+            "name": "build and run"
+          },
+          "id": "runCommand"
+        }
+      ]
+    }
+  },
     "links": []
   }
 }
