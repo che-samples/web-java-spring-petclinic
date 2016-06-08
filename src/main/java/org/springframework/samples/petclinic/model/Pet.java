@@ -73,6 +73,7 @@ public class Pet extends NamedEntity {
     }
 
     public void setType(PetType type) {
+        // this is a test
         this.type = type;
     }
 
