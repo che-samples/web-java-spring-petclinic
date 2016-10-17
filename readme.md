@@ -1,3 +1,6 @@
+This is a test.
+
+
 # web-java-spring-petclinic
 
 Spring PetClinic Sample Application
