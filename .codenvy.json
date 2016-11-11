@@ -57,7 +57,7 @@
             "src/main/java"
           ],
           "git.repository.remotes": [
-            "https://github.com/che-samples/web-java-spring-petclinic.git"
+            "https://github.com/bmicklea/web-java-spring-petclinic.git"
           ],
           "maven.groupId": [
             "org.springframework.samples"
@@ -84,7 +84,7 @@
         },
         "type": "maven",
         "source": {
-          "location": "https://github.com/che-samples/web-java-spring-petclinic.git",
+          "location": "https://github.com/bmicklea/web-java-spring-petclinic.git",
           "type": "git",
           "parameters": {}
         },

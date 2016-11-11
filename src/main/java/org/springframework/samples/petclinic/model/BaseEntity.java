@@ -15,7 +15,7 @@
  */
 package org.springframework.samples.petclinic.model;
 
-import java.io.Serializable;
+import java.applet.*;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
