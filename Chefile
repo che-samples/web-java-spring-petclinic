@@ -1,0 +1,7 @@
+che.server.ip="192.168.65.2"
+che.server.port=8080
+che.server.type="local"
+workspace.projects[0].type="maven"
+workspace.postload.actions[0].command="my-first-command"
+workspace.name="petclinic"
+workspace.ram=2048
