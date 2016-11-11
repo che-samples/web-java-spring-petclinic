@@ -1,6 +1,3 @@
-This is a test.
-
-
 # web-java-spring-petclinic
 
 Spring PetClinic Sample Application
@@ -13,7 +10,6 @@ Spring PetClinic Sample Application
 FROM [codenvy/ubuntu_jdk8](https://hub.docker.com/r/codenvy/ubuntu_jdk8/)
 
 or
-
 
 FROM [codenvy/debian_jdk8](https://hub.docker.com/r/codenvy/debian_jdk8/)
 
