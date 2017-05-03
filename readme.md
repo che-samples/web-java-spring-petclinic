@@ -6,6 +6,11 @@ Spring PetClinic Sample Application
 [![Contribute](https://codenvy.io/factory/resources/codenvy-contribute.svg)](https://codenvy.io/f?id=factoryzheekelodx3wdwnn
 )
 
+
+
+Some edits
+
+
 # Stack to use
 
 FROM [codenvy/ubuntu_jdk8](https://hub.docker.com/r/codenvy/ubuntu_jdk8/)
