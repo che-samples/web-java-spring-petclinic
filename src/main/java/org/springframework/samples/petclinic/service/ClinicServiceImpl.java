@@ -41,14 +41,14 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class ClinicServiceImpl implements ClinicService {
 
-    private PetRepository petRepository;
+    private PetRepository myPetRepo;
     private VetRepository vetRepository;
     private OwnerRepository ownerRepository;
     private VisitRepository visitRepository;
 
     @Autowired
     public ClinicServiceImpl(PetRepository petRepository, VetRepository vetRepository, OwnerRepository ownerRepository, VisitRepository visitRepository) {
-        this.petRepository = petRepository;
+        this.myPetRepo = petRepository;
         this.vetRepository = vetRepository;
         this.ownerRepository = ownerRepository;
         this.visitRepository = visitRepository;
@@ -57,7 +57,7 @@ public class ClinicServiceImpl implements ClinicService {
     @Override
     @Transactional(readOnly = true)
     public Collection<PetType> findPetTypes() throws DataAccessException {
-        return petRepository.findPetTypes();
+        return myPetRepo.findPetTypes();
     }
 
     @Override
@@ -89,13 +89,13 @@ public class ClinicServiceImpl implements ClinicService {
     @Override
     @Transactional(readOnly = true)
     public Pet findPetById(int id) throws DataAccessException {
-        return petRepository.findById(id);
+        return myPetRepo.findById(id);
     }
 
     @Override
     @Transactional
     public void savePet(Pet pet) throws DataAccessException {
-        petRepository.save(pet);
+        myPetRepo.save(pet);
     }
 
     @Override
