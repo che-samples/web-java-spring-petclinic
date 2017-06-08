@@ -18,12 +18,14 @@ package org.springframework.samples.petclinic.web;
 import com.rometools.rome.feed.atom.Entry;
 import com.rometools.rome.feed.atom.Feed;
 import com.rometools.rome.feed.atom.Content;
+
 import org.springframework.samples.petclinic.model.Vet;
 import org.springframework.samples.petclinic.model.Vets;
 import org.springframework.web.servlet.view.feed.AbstractAtomFeedView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -56,7 +58,7 @@ public class VetsAtomView extends AbstractAtomFeedView {
             Entry entry = new Entry();
             // see http://diveintomark.org/archives/2004/05/28/howto-atom-id#other
             entry.setId(String.format("tag:springsource.org,%s", vet.getId()));
-            entry.setTitle(String.format("Vet: %s %s", vet.getFirstName(), vet.getLastName()));
+            entry.setTitle(String.format("Vet: %s %s", vet.getFirstName(), toUpperCase(vet.getLastName())));
             //entry.setUpdated(visit.getDate().toDate());
 
             Content summary = new Content();
@@ -68,6 +70,10 @@ public class VetsAtomView extends AbstractAtomFeedView {
         response.setContentType("blabla");
         return entries;
 
+    }
+
+    private String toUpperCase(String lastName) {
+        return lastName.toUpperCase();
     }
 
 }
