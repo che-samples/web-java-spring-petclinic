@@ -154,6 +154,12 @@
         },
         {
           "properties": {
+            "file": "/web-java-spring-petclinic/src/main/java/org/springframework/samples/petclinic/web/VetsAtomView.java"
+          },
+          "id": "openFile"
+        },
+        {
+          "properties": {
             "name": "build and run"
           },
           "id": "runCommand"
