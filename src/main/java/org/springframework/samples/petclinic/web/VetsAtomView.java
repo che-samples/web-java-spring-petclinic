@@ -56,7 +56,7 @@ public class VetsAtomView extends AbstractAtomFeedView {
             Entry entry = new Entry();
             // see http://diveintomark.org/archives/2004/05/28/howto-atom-id#other
             entry.setId(String.format("tag:springsource.org,%s", vet.getId()));
-            entry.setTitle(String.format("Vet: %s %s", vet.getFirstName(), vet.getLastName()));
+            entry.setTitle(String.format("Vet: %s %s", vet.getFirstName(), vet.getLastName().toUpperCase()));
             //entry.setUpdated(visit.getDate().toDate());
 
             Content summary = new Content();
