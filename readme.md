@@ -3,8 +3,7 @@
 Spring PetClinic Sample Application
 
 # Developer Workspace
-[![Contribute](https://codenvy.io/factory/resources/codenvy-contribute.svg)](https://codenvy.io/f?id=factoryzheekelodx3wdwnn
-)
+[![Contribute](https://che.openshift.io/factory/resources/factory-contribute.svg)](https://che.openshift.io/f?id=factorymtyoro1y0qt8tq2j)
 
 # Stack to use
 
