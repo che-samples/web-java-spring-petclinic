@@ -5,15 +5,6 @@ Spring PetClinic Sample Application
 # Developer Workspace
 [![Contribute](https://che.openshift.io/factory/resources/factory-contribute.svg)](https://che.openshift.io/f?id=factorymtyoro1y0qt8tq2j)
 
-# Stack to use
-
-FROM [codenvy/ubuntu_jdk8](https://hub.docker.com/r/codenvy/ubuntu_jdk8/)
-
-or
-
-
-FROM [codenvy/debian_jdk8](https://hub.docker.com/r/codenvy/debian_jdk8/)
-
 # How to run
 
 | #       | Description           | Command  |
