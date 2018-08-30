@@ -31,7 +31,7 @@ import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.orm.ObjectRetrievalFailureException;
 import org.springframework.samples.petclinic.model.Owner;
-import org.springframework.samples.petclinic.model.Pet;
+import org.springframework.samples.petclinic.model.MyPet;
 import org.springframework.samples.petclinic.model.PetType;
 import org.springframework.samples.petclinic.model.Visit;
 import org.springframework.samples.petclinic.repository.OwnerRepository;
@@ -74,7 +74,7 @@ public class JdbcOwnerRepositoryImpl implements OwnerRepository {
 
     /**
      * Loads {@link Owner Owners} from the data store by last name, returning all owners whose last name <i>starts</i> with
-     * the given name; also loads the {@link Pet Pets} and {@link Visit Visits} for the corresponding owners, if not
+     * the given name; also loads the {@link MyPet Pets} and {@link Visit Visits} for the corresponding owners, if not
      * already loaded.
      */
     @Override
@@ -91,7 +91,7 @@ public class JdbcOwnerRepositoryImpl implements OwnerRepository {
     }
 
     /**
-     * Loads the {@link Owner} with the supplied <code>id</code>; also loads the {@link Pet Pets} and {@link Visit Visits}
+     * Loads the {@link Owner} with the supplied <code>id</code>; also loads the {@link MyPet Pets} and {@link Visit Visits}
      * for the corresponding owner, if not already loaded.
      */
     @Override
@@ -151,7 +151,7 @@ public class JdbcOwnerRepositoryImpl implements OwnerRepository {
     }
 
     /**
-     * Loads the {@link Pet} and {@link Visit} data for the supplied {@link List} of {@link Owner Owners}.
+     * Loads the {@link MyPet} and {@link Visit} data for the supplied {@link List} of {@link Owner Owners}.
      *
      * @param owners the list of owners for whom the pet and visit data should be loaded
      * @see #loadPetsAndVisits(Owner)
