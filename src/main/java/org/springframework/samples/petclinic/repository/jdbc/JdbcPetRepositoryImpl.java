@@ -30,7 +30,7 @@ import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.orm.ObjectRetrievalFailureException;
 import org.springframework.samples.petclinic.model.Owner;
-import org.springframework.samples.petclinic.model.Pet;
+import org.springframework.samples.petclinic.model.MyPet;
 import org.springframework.samples.petclinic.model.PetType;
 import org.springframework.samples.petclinic.model.Visit;
 import org.springframework.samples.petclinic.repository.OwnerRepository;
@@ -81,7 +81,7 @@ public class JdbcPetRepositoryImpl implements PetRepository {
     }
 
     @Override
-    public Pet findById(int id) throws DataAccessException {
+    public MyPet findById(int id) throws DataAccessException {
         JdbcPet pet;
         try {
             Map<String, Object> params = new HashMap<String, Object>();
@@ -91,7 +91,7 @@ public class JdbcPetRepositoryImpl implements PetRepository {
                     params,
                     new JdbcPetRowMapper());
         } catch (EmptyResultDataAccessException ex) {
-            throw new ObjectRetrievalFailureException(Pet.class, new Integer(id));
+            throw new ObjectRetrievalFailureException(MyPet.class, new Integer(id));
         }
         Owner owner = this.ownerRepository.findById(pet.getOwnerId());
         owner.addPet(pet);
@@ -105,7 +105,7 @@ public class JdbcPetRepositoryImpl implements PetRepository {
     }
 
     @Override
-    public void save(Pet pet) throws DataAccessException {
+    public void save(MyPet pet) throws DataAccessException {
         if (pet.isNew()) {
             Number newKey = this.insertPet.executeAndReturnKey(
                     createPetParameterSource(pet));
@@ -119,9 +119,9 @@ public class JdbcPetRepositoryImpl implements PetRepository {
     }
 
     /**
-     * Creates a {@link MapSqlParameterSource} based on data values from the supplied {@link Pet} instance.
+     * Creates a {@link MapSqlParameterSource} based on data values from the supplied {@link MyPet} instance.
      */
-    private MapSqlParameterSource createPetParameterSource(Pet pet) {
+    private MapSqlParameterSource createPetParameterSource(MyPet pet) {
         return new MapSqlParameterSource()
                 .addValue("id", pet.getId())
                 .addValue("name", pet.getName())

@@ -45,7 +45,7 @@ import org.springframework.format.annotation.DateTimeFormat;
  */
 @Entity
 @Table(name = "pets")
-public class Pet extends NamedEntity {
+public class MyPet extends NamedEntity {
 
     @Column(name = "birth_date")
     @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
@@ -61,7 +61,7 @@ public class Pet extends NamedEntity {
     private Owner owner;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet", fetch = FetchType.EAGER)
-    private Set<Visit> visits;
+    private Set<Visit> visitInternal;
 
 
     public void setBirthDate(DateTime birthDate) {
@@ -89,14 +89,14 @@ public class Pet extends NamedEntity {
     }
 
     protected void setVisitsInternal(Set<Visit> visits) {
-        this.visits = visits;
+        this.visitInternal = visits;
     }
 
     protected Set<Visit> getVisitsInternal() {
-        if (this.visits == null) {
-            this.visits = new HashSet<Visit>();
+        if (this.visitInternal == null) {
+            this.visitInternal = new HashSet<Visit>();
         }
-        return this.visits;
+        return this.visitInternal;
     }
 
     public List<Visit> getVisits() {

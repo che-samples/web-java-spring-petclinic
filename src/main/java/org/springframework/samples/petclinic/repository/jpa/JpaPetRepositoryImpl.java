@@ -20,7 +20,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.springframework.samples.petclinic.model.Pet;
+import org.springframework.samples.petclinic.model.MyPet;
 import org.springframework.samples.petclinic.model.PetType;
 import org.springframework.samples.petclinic.repository.PetRepository;
 import org.springframework.stereotype.Repository;
@@ -47,12 +47,12 @@ public class JpaPetRepositoryImpl implements PetRepository {
     }
 
     @Override
-    public Pet findById(int id) {
-        return this.em.find(Pet.class, id);
+    public MyPet findById(int id) {
+        return this.em.find(MyPet.class, id);
     }
 
     @Override
-    public void save(Pet pet) {
+    public void save(MyPet pet) {
     	if (pet.getId() == null) {
     		this.em.persist(pet);     		
     	}
