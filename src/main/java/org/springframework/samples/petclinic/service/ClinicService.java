@@ -19,7 +19,7 @@ import java.util.Collection;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.samples.petclinic.model.Owner;
-import org.springframework.samples.petclinic.model.Pet;
+import org.springframework.samples.petclinic.model.MyPet;
 import org.springframework.samples.petclinic.model.PetType;
 import org.springframework.samples.petclinic.model.Vet;
 import org.springframework.samples.petclinic.model.Visit;
@@ -36,9 +36,9 @@ public interface ClinicService {
 
     Owner findOwnerById(int id) throws DataAccessException;
 
-    Pet findPetById(int id) throws DataAccessException;
+    MyPet findPetById(int id) throws DataAccessException;
 
-    void savePet(Pet pet) throws DataAccessException;
+    void savePet(MyPet pet) throws DataAccessException;
 
     void saveVisit(Visit visit) throws DataAccessException;
 

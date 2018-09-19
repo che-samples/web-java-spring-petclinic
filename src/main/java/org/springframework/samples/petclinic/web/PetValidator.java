@@ -15,7 +15,7 @@
  */
 package org.springframework.samples.petclinic.web;
 
-import org.springframework.samples.petclinic.model.Pet;
+import org.springframework.samples.petclinic.model.MyPet;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;
 
@@ -27,7 +27,7 @@ import org.springframework.validation.Errors;
  */
 public class PetValidator {
 
-    public void validate(Pet pet, Errors errors) {
+    public void validate(MyPet pet, Errors errors) {
         String name = pet.getName();
         // name validaation
         if (!StringUtils.hasLength(name)) {
