@@ -55,7 +55,7 @@ public class Visit extends BaseEntity {
      */
     @ManyToOne
     @JoinColumn(name = "pet_id")
-    private Pet pet;
+    private MyPet pet;
 
 
     /**
@@ -107,7 +107,7 @@ public class Visit extends BaseEntity {
      *
      * @return Value of property pet.
      */
-    public Pet getPet() {
+    public MyPet getPet() {
         return this.pet;
     }
 
@@ -116,7 +116,7 @@ public class Visit extends BaseEntity {
      *
      * @param pet New value of property pet.
      */
-    public void setPet(Pet pet) {
+    public void setPet(MyPet pet) {
         this.pet = pet;
     }
 
