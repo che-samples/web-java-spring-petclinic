@@ -21,7 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.dao.DataAccessException;
 import org.springframework.samples.petclinic.model.Owner;
-import org.springframework.samples.petclinic.model.Pet;
+import org.springframework.samples.petclinic.model.MyPet;
 import org.springframework.samples.petclinic.model.PetType;
 import org.springframework.samples.petclinic.model.Vet;
 import org.springframework.samples.petclinic.model.Visit;
@@ -88,13 +88,13 @@ public class ClinicServiceImpl implements ClinicService {
 
     @Override
     @Transactional(readOnly = true)
-    public Pet findPetById(int id) throws DataAccessException {
+    public MyPet findPetById(int id) throws DataAccessException {
         return petRepository.findById(id);
     }
 
     @Override
     @Transactional
-    public void savePet(Pet pet) throws DataAccessException {
+    public void savePet(MyPet pet) throws DataAccessException {
         petRepository.save(pet);
     }
 
