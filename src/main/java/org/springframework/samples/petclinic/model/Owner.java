@@ -98,7 +98,7 @@ public class Owner extends Person {
 
     public List<MyPet> getPets() {
         List<MyPet> sortedPets = new ArrayList<MyPet>(getPetsInternal());
-        System.out.println(sortedPets);
+        System.out.println("Pet: " + sortedPets);
         PropertyComparator.sort(sortedPets, new MutableSortDefinition("name", true, true));
         return Collections.unmodifiableList(sortedPets);
     }
