@@ -58,7 +58,7 @@ public class Owner extends Person {
     private String telephone;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
-    private Set<Pet> pets;
+    private Set<MyPet> pets;
 
 
     public String getAddress() {
@@ -85,24 +85,25 @@ public class Owner extends Person {
         this.telephone = telephone;
     }
 
-    protected void setPetsInternal(Set<Pet> pets) {
+    protected void setPetsInternal(Set<MyPet> pets) {
         this.pets = pets;
     }
 
-    protected Set<Pet> getPetsInternal() {
+    protected Set<MyPet> getPetsInternal() {
         if (this.pets == null) {
-            this.pets = new HashSet<Pet>();
+            this.pets = new HashSet<MyPet>();
         }
         return this.pets;
     }
 
-    public List<Pet> getPets() {
-        List<Pet> sortedPets = new ArrayList<Pet>(getPetsInternal());
+    public List<MyPet> getPets() {
+        List<MyPet> sortedPets = new ArrayList<MyPet>(getPetsInternal());
+        System.out.println("sortedPets");
         PropertyComparator.sort(sortedPets, new MutableSortDefinition("name", true, true));
         return Collections.unmodifiableList(sortedPets);
     }
 
-    public void addPet(Pet pet) {
+    public void addPet(MyPet pet) {
         getPetsInternal().add(pet);
         pet.setOwner(this);
     }
@@ -113,7 +114,7 @@ public class Owner extends Person {
      * @param name to test
      * @return true if pet name is already in use
      */
-    public Pet getPet(String name) {
+    public MyPet getPet(String name) {
         return getPet(name, false);
     }
 
@@ -123,9 +124,9 @@ public class Owner extends Person {
      * @param name to test
      * @return true if pet name is already in use
      */
-    public Pet getPet(String name, boolean ignoreNew) {
+    public MyPet getPet(String name, boolean ignoreNew) {
         name = name.toLowerCase();
-        for (Pet pet : getPetsInternal()) {
+        for (MyPet pet : getPetsInternal()) {
             if (!ignoreNew || !pet.isNew()) {
                 String compName = pet.getName();
                 compName = compName.toLowerCase();
