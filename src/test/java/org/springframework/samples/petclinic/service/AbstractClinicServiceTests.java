@@ -26,7 +26,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.samples.petclinic.model.Owner;
-import org.springframework.samples.petclinic.model.Pet;
+import org.springframework.samples.petclinic.model.MyPet;
 import org.springframework.samples.petclinic.model.PetType;
 import org.springframework.samples.petclinic.model.Vet;
 import org.springframework.samples.petclinic.model.Visit;
@@ -108,11 +108,11 @@ public abstract class AbstractClinicServiceTests {
 	@Test
 	public void findPet() {
 	    Collection<PetType> types = this.clinicService.findPetTypes();
-	    Pet pet7 = this.clinicService.findPetById(7);
+	    MyPet pet7 = this.clinicService.findPetById(7);
 	    assertTrue(pet7.getName().startsWith("Samantha"));
 	    assertEquals(EntityUtils.getById(types, PetType.class, 1).getId(), pet7.getType().getId());
 	    assertEquals("Jean", pet7.getOwner().getFirstName());
-	    Pet pet6 = this.clinicService.findPetById(6);
+	    MyPet pet6 = this.clinicService.findPetById(6);
 	    assertEquals("George", pet6.getName());
 	    assertEquals(EntityUtils.getById(types, PetType.class, 4).getId(), pet6.getType().getId());
 	    assertEquals("Peter", pet6.getOwner().getFirstName());
@@ -133,7 +133,7 @@ public abstract class AbstractClinicServiceTests {
 	public void insertPet() {
 	    Owner owner6 = this.clinicService.findOwnerById(6);
 	    int found = owner6.getPets().size();
-	    Pet pet = new Pet();
+	    MyPet pet = new MyPet();
 	    pet.setName("bowser");
 	    Collection<PetType> types = this.clinicService.findPetTypes();
 	    pet.setType(EntityUtils.getById(types, PetType.class, 2));
@@ -151,7 +151,7 @@ public abstract class AbstractClinicServiceTests {
 	@Test
 	@Transactional
 	public void updatePet() throws Exception {
-	    Pet pet7 = this.clinicService.findPetById(7);
+	    MyPet pet7 = this.clinicService.findPetById(7);
 	    String old = pet7.getName();
 	    pet7.setName(old + "X");
 	    this.clinicService.savePet(pet7);
@@ -177,7 +177,7 @@ public abstract class AbstractClinicServiceTests {
 	@Test
 	@Transactional
 	public void insertVisit() {
-	    Pet pet7 = this.clinicService.findPetById(7);
+	    MyPet pet7 = this.clinicService.findPetById(7);
 	    int found = pet7.getVisits().size();
 	    Visit visit = new Visit();
 	    pet7.addVisit(visit);
