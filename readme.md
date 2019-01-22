@@ -5,6 +5,14 @@ Spring PetClinic Sample Application
 # Developer Workspace
 [![Contribute](https://che.openshift.io/factory/resources/factory-contribute.svg)](https://che.openshift.io/f?id=factorymtyoro1y0qt8tq2j)
 
+This Eclipse Che Factory can also be invoked with any host:
+{hostURL}/f?url=https://github.com/che-samples/web-java-spring-petclinic
+It will read the `.factory.json` from the repository to instanciate the developer workspace.
+
+Example:
+http://che.openshift.io/f?url=https://github.com/che-samples/web-java-spring-petclinic
+
+
 # How to run
 
 | #       | Description           | Command  |
