@@ -1,27 +1,41 @@
 {
   "v": "4.0",
+  "name": "spring-pet-clinic",
   "workspace": {
-    "environments": [
-      {
-        "name": "java",
-        "machineConfigs": [
-          {
-            "limits": {
-              "ram": 2000
-            },
-            "name": "ws-machine",
-            "type": "docker",
-            "source": {
-              "location": "http://beta.codenvy.com/api/recipe/recipe7awzx4jnggo2j2fz/script",
-              "type": "recipe"
-            },
-            "dev": true,
-            "links": []
-          }
-        ]
-      }
-    ],
     "defaultEnv": "java",
+    "environments": {
+      "java": {
+        "machines": {
+          "ws-machine": {
+            "attributes": {
+              "memoryLimitBytes": "2147483648"
+            },
+            "servers": {
+              "8080/tcp": {
+                "attributes": {},
+                "port": "8080",
+                "protocol": "http"
+              }
+            },
+            "volumes": {},
+            "installers": [
+              "org.eclipse.che.ls.java",
+              "org.eclipse.che.terminal",
+              "org.eclipse.che.ws-agent",
+              "org.eclipse.che.exec",
+              "com.redhat.oc-login"
+            ],
+            "env": {
+              "CHE_MACHINE_NAME": "ws-machine"
+            }
+          }
+        },
+        "recipe": {
+          "type": "dockerimage",
+          "content": "registry.devshift.net/che/centos_jdk8"
+        }
+      }
+    },
     "projects": [
       {
         "links": [],
@@ -45,10 +59,10 @@
           "languageVersion": [
             "1.8.0_45"
           ],
-          "contribute": [],
           "contribute_mode": [
             "contribute"
           ],
+          "contribute": [],
           "language": [
             "java"
           ],
@@ -72,10 +86,10 @@
             "git"
           ],
           "maven.resource.folder": [],
-          "contribute_branch": [
+          "git.current.branch.name": [
             "master"
           ],
-          "git.current.branch.name": [
+          "contribute_branch": [
             "master"
           ],
           "maven.parent.artifactId": [
@@ -88,7 +102,6 @@
           "type": "git",
           "parameters": {}
         },
-        "modules": [],
         "path": "/web-java-spring-petclinic",
         "description": "",
         "problems": [],
@@ -97,16 +110,15 @@
         ]
       }
     ],
-    "name": "java",
-    "attributes": {
-      "stackId": "java-default"
-    },
+    "name": "spring-pet-clinic",
+    "attributes": {},
     "commands": [
       {
-        "commandLine": "$TOMCAT_HOME/bin/catalina.sh run",
+        "commandLine": "$TOMCAT_HOME/bin/catalina.sh run 2>&1",
         "name": "run tomcat",
         "attributes": {
-          "previewUrl": "http://${server.port.8080}"
+          "goal": "Run",
+          "previewUrl": "${server.8080/tcp}"
         },
         "type": "custom"
       },
@@ -114,59 +126,57 @@
         "commandLine": "$TOMCAT_HOME/bin/catalina.sh stop",
         "name": "stop tomcat",
         "attributes": {
+          "goal": "Run",
           "previewUrl": ""
         },
         "type": "custom"
       },
       {
-        "commandLine": "mvn -f ${current.project.path} clean install && cp ${current.project.path}/target/*.war $TOMCAT_HOME/webapps/ROOT.war",
+        "commandLine": "mvn -f ${current.project.path} clean install && cp ${current.project.path}/target/*.war $TOMCAT_HOME/webapps/ROOT.war 2>&1",
         "name": "build",
         "attributes": {
+          "goal": "Build",
           "previewUrl": ""
         },
         "type": "mvn"
       },
       {
-        "commandLine": "mvn -f ${current.project.path} clean install && cp ${current.project.path}/target/*.war $TOMCAT_HOME/webapps/ROOT.war && $TOMCAT_HOME/bin/catalina.sh run",
+        "commandLine": "mvn -f ${current.project.path} clean install && cp ${current.project.path}/target/*.war $TOMCAT_HOME/webapps/ROOT.war && $TOMCAT_HOME/bin/catalina.sh run 2>&1",
         "name": "build and run",
         "attributes": {
-          "previewUrl": "http://${server.port.8080}"
+          "goal": "Run",
+          "previewUrl": "${server.8080/tcp}"
         },
         "type": "mvn"
       },
       {
-        "commandLine": "mvn -f ${current.project.path} clean install && cp ${current.project.path}/target/*.war $TOMCAT_HOME/webapps/ROOT.war && $TOMCAT_HOME/bin/catalina.sh jpda run",
+        "commandLine": "mvn -f ${current.project.path} clean install && cp ${current.project.path}/target/*.war $TOMCAT_HOME/webapps/ROOT.war && $TOMCAT_HOME/bin/catalina.sh jpda run 2>&1",
         "name": "debug",
         "attributes": {
-          "previewUrl": "http://${server.port.8080}"
+          "goal": "Debug",
+          "previewUrl": "${server.8080/tcp}"
         },
         "type": "mvn"
       }
     ],
-    "ide": {
+    "links": []
+  },
+  "ide": {
     "onProjectsLoaded": {
       "actions": [
-        {
-          "properties": {
-            "file": "/web-java-spring-petclinic/src/main/java/org/springframework/samples/petclinic/model/Pet.java"
-          },
-          "id": "openFile"
-        },
-        {
-          "properties": {
-            "file": "/web-java-spring-petclinic/src/main/java/org/springframework/samples/petclinic/web/VetsAtomView.java"
-          },
-          "id": "openFile"
-        },
         {
           "properties": {
             "name": "build and run"
           },
           "id": "runCommand"
+        },
+        {
+          "properties": {
+            "file": "/web-java-spring-petclinic/src/main/java/org/springframework/samples/petclinic/model/Pet.java"
+          },
+          "id": "openFile"
         }
       ]
     }
-  },
-    "links": []
   }
 }
