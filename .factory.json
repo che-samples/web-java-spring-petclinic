@@ -178,11 +178,5 @@
         }
       ]
     }
-  },
-  "creator": {
-    "name": "codeready-factories",
-    "email": "codereadyfactories@redhat.com",
-    "created": 1531236570031,
-    "userId": "eab69494-5f85-4b53-b2ac-6fbc6c6853f3"
   }
 }
