@@ -10,7 +10,7 @@ This Eclipse Che Factory can also be invoked with any host:
 It will read the `.factory.json` from the repository to instanciate the developer workspace.
 
 Example:
-http://che.openshift.io/f?url=https://github.com/che-samples/web-java-spring-petclinic
+{your_host_url}/f?url=https://github.com/che-samples/web-java-spring-petclinic/tree/codeready-workspaces-beta
 
 
 # How to run
