@@ -22,8 +22,7 @@
               "org.eclipse.che.ls.java",
               "org.eclipse.che.terminal",
               "org.eclipse.che.ws-agent",
-              "org.eclipse.che.exec",
-              "com.redhat.oc-login"
+              "org.eclipse.che.exec"
             ],
             "env": {
               "CHE_MACHINE_NAME": "ws-machine"
