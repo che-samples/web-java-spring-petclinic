@@ -20,7 +20,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.samples.petclinic.model.Owner;
-import org.springframework.samples.petclinic.model.Pet;
+import org.springframework.samples.petclinic.model.MyPet;
 import org.springframework.samples.petclinic.model.PetType;
 import org.springframework.samples.petclinic.service.ClinicService;
 import org.springframework.stereotype.Controller;
@@ -64,14 +64,14 @@ public class PetController {
     @RequestMapping(value = "/owners/{ownerId}/pets/new", method = RequestMethod.GET)
     public String initCreationForm(@PathVariable("ownerId") int ownerId, Map<String, Object> model) {
         Owner owner = this.clinicService.findOwnerById(ownerId);
-        Pet pet = new Pet();
+        MyPet pet = new MyPet();
         owner.addPet(pet);
         model.put("pet", pet);
         return "pets/createOrUpdatePetForm";
     }
 
     @RequestMapping(value = "/owners/{ownerId}/pets/new", method = RequestMethod.POST)
-    public String processCreationForm(@ModelAttribute("pet") Pet pet, BindingResult result, SessionStatus status) {
+    public String processCreationForm(@ModelAttribute("pet") MyPet pet, BindingResult result, SessionStatus status) {
         new PetValidator().validate(pet, result);
         if (result.hasErrors()) {
             return "pets/createOrUpdatePetForm";
@@ -84,13 +84,13 @@ public class PetController {
 
     @RequestMapping(value = "/owners/*/pets/{petId}/edit", method = RequestMethod.GET)
     public String initUpdateForm(@PathVariable("petId") int petId, Map<String, Object> model) {
-        Pet pet = this.clinicService.findPetById(petId);
+        MyPet pet = this.clinicService.findPetById(petId);
         model.put("pet", pet);
         return "pets/createOrUpdatePetForm";
     }
 
     @RequestMapping(value = "/owners/{ownerId}/pets/{petId}/edit", method = {RequestMethod.PUT, RequestMethod.POST})
-    public String processUpdateForm(@ModelAttribute("pet") Pet pet, BindingResult result, SessionStatus status) {
+    public String processUpdateForm(@ModelAttribute("pet") MyPet pet, BindingResult result, SessionStatus status) {
         // we're not using @Valid annotation here because it is easier to define such validation rule in Java
         new PetValidator().validate(pet, result);
         if (result.hasErrors()) {
