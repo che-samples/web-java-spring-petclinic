@@ -2,6 +2,8 @@
 
 Spring PetClinic Sample Application
 
+This is so cool
+
 # Developer Workspace
 [![Contribute](https://che.openshift.io/factory/resources/factory-contribute.svg)](https://che.openshift.io/f?id=factorymtyoro1y0qt8tq2j)
 
