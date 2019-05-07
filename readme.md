@@ -1,5 +1,7 @@
 # web-java-spring-petclinic
 
+Hello Summit
+
 Spring PetClinic Sample Application
 
 # Developer Workspace
