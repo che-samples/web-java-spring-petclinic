@@ -96,6 +96,7 @@ public class Pet extends NamedEntity {
         if (this.visits == null) {
             this.visits = new HashSet<Visit>();
         }
+        // a comment 
         return this.visits;
     }
 
