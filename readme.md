@@ -1,5 +1,7 @@
 # web-java-spring-petclinic
 
+This is a quick demo
+
 Spring PetClinic Sample Application
 
 # Developer Workspace
