@@ -3,7 +3,7 @@
 Spring PetClinic Sample Application
 
 # Developer Workspace
-[![Contribute](https://che.openshift.io/factory/resources/factory-contribute.svg)](https://che.openshift.io/f?id=factorymtyoro1y0qt8tq2j)
+[![Contribute](https://www.eclipse.org/che/factory-contribute.svg)](https://che.openshift.io/f?id=factorymtyoro1y0qt8tq2j)
 
 This Eclipse Che Factory can also be invoked with any host:
 {hostURL}/f?url=https://github.com/che-samples/web-java-spring-petclinic
